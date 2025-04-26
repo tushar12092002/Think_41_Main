@@ -1,0 +1,47 @@
+
+.home-expertise-element {
+    -webkit-backdrop-filter: blur(23.149791717529297px);
+    backdrop-filter: blur(23.149791717529297px);
+  }
+  
+  .math-grid {
+    background-image: 
+      repeating-linear-gradient(0deg, #fcfcfc62 0px, #fcfcfc62 1px, transparent 1px, transparent 50px),
+      repeating-linear-gradient(90deg, #fcfcfc62 0px, #fcfcfc62 1px, transparent 1px, transparent 50px);
+  }
+
+  .scroll-hidden::-webkit-scrollbar {
+    display: none;
+  }
+  .scroll-hidden {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+  
+  
+/* White Navbar Placeholder */
+.navbar-placeholder {
+  width: 100%;
+  height: 80px; /* Adjust as needed */
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: relative;
+  z-index: 10;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  width: 503px;
+  height: 1440px;
+  position: absolute;
+  top: 80px;
+  left: -10px;
+  background: url('./assets/Career/career-background.svg');
+  /* aspect-ratio: 503/1440;  Not needed if width/height fixed */
+  transform: rotate(90deg);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

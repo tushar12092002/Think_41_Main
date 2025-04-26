@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme{
+
+
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
+
+  --color-t-blue-1: #0060C7;
+  --color-t-blue-2: #195B81;
+  --color-t-blue-3: #23619A;
+  --color-t-blue-4: #02033B;
+  --color-t-grey-1: #EEF2F3;
+  --color-t-grey-2: #E9EEFC;
+  --color-t-grey-3: #E2EBF9;
+  --color-t-grey-4: #D8DDF2;
+
+}
