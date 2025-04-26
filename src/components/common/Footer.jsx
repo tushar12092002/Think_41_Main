@@ -34,13 +34,13 @@ export default function Footer() {
           </div>
 
           {/* CONTACT Section */}
-          <div>
-            <h2 className="text-lg font-bold mb-4 font-montserrat text-[20px]">CONTACT</h2>
+          <div className="mb-4">
+            <h2 className="text-lg font-bold mb-4 font-montserrat text-[20px] mt-4">CONTACT</h2>
             <div className="flex flex-col space-y-2 font-montserrat text-[16px]">
               <p>Email : contact@think41.com</p>
               <p>Location: hsr layout, Bengaluru</p>
               <div
-                className="flex space-x-4 mt-4 border-t border-b border-opacity-30 font-montserrat text-[16px]"
+                className="flex space-x-4 border-t border-b border-opacity-30 font-montserrat text-[16px]"
                 style={{ borderColor: "rgba(26, 86, 219, 0.3)" }}
               >
                 <Link to="#" aria-label="Instagram" className="py-2">
@@ -80,7 +80,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="mt-auto flex flex-col md:flex-row justify-between md:items-center">
           <Link to="#" className="hover:underline font-montserrat text-[14px]">
             Terms of Use & Privacy Policy
           </Link>

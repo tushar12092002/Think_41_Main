@@ -7,6 +7,7 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 export default function Navbar() {
   const [isOfferingsOpen, setIsOfferingsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +55,9 @@ export default function Navbar() {
 
             <div
               className={`absolute top-full left-0 bg-white rounded shadow-lg py-2 w-64 z-20 transition-opacity duration-200 ${
-                isOfferingsOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+                isOfferingsOpen
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none"
               }`}
             >
               {/* Offering Dropdown Items */}
@@ -97,6 +100,82 @@ export default function Navbar() {
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
           </Link>
         </nav>
+
+        <div className="relative flex md:hidden">
+          <button
+            type="button"
+            onClick={() => setIsSidebarOpen((p) => !p)}
+          >
+            {isSidebarOpen ? "CLOSE" : "OPEN"}
+          </button>
+          {isSidebarOpen && (
+            <nav
+              className={`absolute top-full -right-[120px] bg-white/[0.9] shadow-md w-sm flex flex-col rounded-md`}
+            >
+              <div className="w-full p-4 flex justify-end flex-col space-y-4">
+                <Link to="/about" className="relative group text-black">
+                  About us
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+                </Link>
+
+                <div className="relative">
+                  <button
+                    className="flex items-center relative group text-black w-full justify-between"
+                    onClick={() => setIsOfferingsOpen(!isOfferingsOpen)}
+                  >
+                    Offerings
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isOfferingsOpen ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  <div
+                    className={`bg-white rounded overflow-hidden transition-all duration-300 text-xs ${
+                      isOfferingsOpen ? 'max-h-48 mt-1' : 'max-h-0'
+                    }`}
+                  >
+                    <Link
+                      to="/offering-a"
+                      className="flex items-center justify-between py-2 text-[16px] font-roboto font-[400] text-gray-800 hover:bg-gray-100"
+                    >
+                      AI Solutions
+                      <ArrowRight className="h-4 w-4 text-gray-500" />
+                    </Link>
+                    <div className="h-[1px] bg-gray-200" />
+                    <Link
+                      to="/offeringb#ai_platform"
+                      className="flex items-center justify-between py-2 text-[16px] font-roboto font-[400] text-gray-800 hover:bg-gray-100"
+                    >
+                      AI Platforms
+                      <ArrowRight className="h-4 w-4 text-gray-500" />
+                    </Link>
+                    <div className="h-[1px] bg-gray-200" />
+                    <Link
+                      to="/offeringb#ai_engineering"
+                      className="flex items-center justify-between py-2 text-[16px] font-roboto font-[400] text-gray-800 hover:bg-gray-100"
+                    >
+                      AI Engineering
+                      <ArrowRight className="h-4 w-4 text-gray-500" />
+                    </Link>
+                  </div>
+                </div>
+
+                <Link to="/career" className="relative group text-black">
+                  Careers
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+                </Link>
+
+                <Link to="/blogs" className="relative group text-black">
+                  Blogs
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+                </Link>
+
+                <Link to="/contact" className="relative group text-black">
+                  Contact Us
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+                </Link>
+              </div>
+            </nav>
+          )}
+        </div>
       </div>
     </header>
   );

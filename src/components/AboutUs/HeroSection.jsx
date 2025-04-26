@@ -6,9 +6,9 @@ export default function HeroSection() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative w-full min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0 h-full w-full">
+        <div className="absolute left-0 -top-[15%] z-0 h-full w-full">
           <img
             src={bgHero}
             alt="Background"

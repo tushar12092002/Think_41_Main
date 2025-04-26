@@ -43,7 +43,7 @@ const images = [
 export default function LeadersSection() {
   return (
     <div className="bg-white py-16 w-full flex justify-center">
-      <section className="max-w-[1440px] px-[120px]">
+      <section className="max-w-[1440px] px-12">
         <h2 className="text-4xl font-bold mb-2 font-montserrat text-[40px] ">
           <span
             className="bg-clip-text text-transparent"
@@ -68,7 +68,7 @@ export default function LeadersSection() {
         </h2>
 
         <p className="text-gray-600 mb-12 font-montserrat text-[24px]">Experience in innovation</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-15 p-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mt-15 p-3">
           {images.map((leader, index) => (
             <div key={index} className="group">
               <div className="flex flex-col items-center rounded-lg bg-[#e5ebf8] relative h-[282px] w-[282px]">
