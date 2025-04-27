@@ -120,7 +120,7 @@ export default function LeadersSection() {
                   />
                 </div>
                 {/* Hover Text (desktop) */}
-                <div className="absolute inset-0 flex flex-col px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex">
+                <div className="absolute inset-0 flex-col px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex">
                   <p className="text-[16px] font-roboto text-gray-700 font-light leading-snug mt-1">
                     {leader.description}
                   </p>
