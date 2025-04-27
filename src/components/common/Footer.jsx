@@ -18,13 +18,13 @@ export default function Footer() {
           <div>
             <h2 className="text-lg font-bold mb-4 font-montserrat text-[20px]">SITEMAPS</h2>
             <nav className="flex flex-col space-y-2 font-montserrat text-[16px]">
-              <Link to="#" className="hover:underline">
+              <Link to="/about" className="hover:underline">
                 About Us
               </Link>
               <Link to="#" className="hover:underline">
                 Solutions
               </Link>
-              <Link to="#" className="hover:underline">
+              <Link to="carrer" className="hover:underline">
                 Work with Us
               </Link>
               <Link to="#" className="hover:underline">

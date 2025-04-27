@@ -1,10 +1,11 @@
-
 import React, { useState } from 'react';
 import pic1 from "../../assets/About/1.svg";
 import pic2 from "../../assets/About/harshit.svg";
 import pic3 from "../../assets/About/3.svg";
 import pic4 from "../../assets/About/4.svg";
-import pic5 from "../../assets/About/logo12.svg"
+import pic5 from "../../assets/About/logo12.svg";
+import frameToImf from '../../assets/About/frame_to_imf.svg';
+import infToFrame from '../../assets/About/inf_to_frame.svg';
 
 const images = [
   {
@@ -41,6 +42,7 @@ const images = [
 ];
 
 export default function LeadersSection() {
+  const [expandedIdx, setExpandedIdx] = React.useState(null);
   return (
     <div className="bg-white py-16 w-full flex justify-center">
       <section className="max-w-[1440px] px-12">
@@ -70,28 +72,62 @@ export default function LeadersSection() {
         <p className="text-gray-600 mb-12 font-montserrat text-[24px]">Experience in innovation</p>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mt-15 p-3">
           {images.map((leader, index) => (
-            <div key={index} className="group">
+            <div key={index} className="group relative">
               <div className="flex flex-col items-center rounded-lg bg-[#e5ebf8] relative h-[282px] w-[282px]">
                 {/* Image Section */}
                 <div className="w-60 h-60 relative mb-4 scale-[1.3] -bottom-[6px] transition-opacity duration-300 group-hover:opacity-0">
+                  {/* Mobile: show image+icon or info, Desktop: always show image */}
+                  <div className="block md:hidden w-full h-full">
+                    {expandedIdx === index ? (
+                      <div className="flex flex-col justify-center items-center w-full h-full relative">
+                        <div className="bg-[#e5ebf8] rounded-lg w-full h-full flex items-center box-border p-0 overflow-auto relative">
+                          <p className="text-xs md:text-[16px] font-roboto text-gray-700 font-light leading-snug p-4 text-left w-full break-words">
+                            {leader.description}
+                          </p>
+                          {/* Back button (bottom-right) */}
+                          <button
+                            className="absolute bottom-2 right-2 z-10 block md:hidden"
+                            onClick={() => setExpandedIdx(null)}
+                            aria-label="Back to image"
+                          >
+                            <img src={infToFrame} alt="Back to image" className="w-9 h-9" />
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        <img
+                          src={leader.image}
+                          alt={leader.name}
+                          className="w-full h-full border-0"
+                        />
+                        {/* Mobile-only info button, no margin/padding */}
+                        <button
+                          className="block md:hidden absolute bottom-2 right-2"
+                          onClick={() => setExpandedIdx(index)}
+                          aria-label="Show leader info"
+                        >
+                          <img src={frameToImf} alt="Show Info" className="w-8 h-8" />
+                        </button>
+                      </>
+                    )}
+                  </div>
+                  {/* Desktop: always show image */}
                   <img
                     src={leader.image}
                     alt={leader.name}
-                    className="w-full h-full border-0"
+                    className="hidden md:block w-full h-full border-0"
                   />
                 </div>
-
-                {/* Hover Text */}
-                <div className="absolute inset-0 flex flex-col px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {/* <p className="font-bold text-[16px] font-montserrat pt-3">{leader.name} :</p> */}
+                {/* Hover Text (desktop) */}
+                <div className="absolute inset-0 flex flex-col px-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 hidden md:flex">
                   <p className="text-[16px] font-roboto text-gray-700 font-light leading-snug mt-1">
                     {leader.description}
                   </p>
                 </div>
               </div>
-
-              {/* Name + LinkedIn icon below */}
-              <div className="flex justify-between items-center w-75 mt-2 px-2  ">
+              {/* Name + LinkedIn icon below (desktop and mobile) */}
+              <div className="flex justify-between items-center w-75 mt-2 px-2">
                 <p className="font-medium text-lg font-montserrat pt-2">{leader.name}</p>
                 <a
                   href={leader.linkedin}
@@ -113,7 +149,3 @@ export default function LeadersSection() {
     </div>
   );
 }
-
-
-
-
